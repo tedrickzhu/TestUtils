@@ -11,16 +11,16 @@ from os import listdir
 def dilate():
     # img = cv2.imread('../images/vessel.jpeg',0)
     # cv2.imwrite('../images/vessel-gray.jpg',img)
-    img = cv2.imread('../images/vessel-gray.jpg')
-
+    img = cv2.imread('../images/origin/im0162.png')
+    print(type(img),img.shape)
     #腐蚀
-    kernele = np.ones((3,3),np.uint8)
-    erosion = cv2.erode(img,kernele,iterations = 1)
-    cv2.imwrite('../images/vessel-eroded.jpg',erosion)
+    # kernele = np.ones((3,3),np.uint8)
+    # erosion = cv2.erode(img,kernele,iterations = 1)
+    # cv2.imwrite('../images/vessel-eroded2.jpg',erosion)
 
-    kerneld = np.ones((15,15),np.uint8)
+    kerneld = np.ones((5,5),np.uint8)
     dilotedimg = cv2.dilate(img,kerneld)
-    cv2.imwrite('../images/vessel-dilated.jpg',dilotedimg)
+    cv2.imwrite('../images/vessel-rgb_dilated5.jpg',dilotedimg)
 
     # cv2.imshow('sourcegray',img)
     # cv2.imshow('erosion',erosion)
@@ -38,8 +38,9 @@ def creat_mask(path,filename):
     img = cv2.imread(path+filename)
     gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
     cv2.imshow('gray',gray)
+    print('this is the shape and type of gray: ',gray.shape,type(gray))
     ret, binary = cv2.threshold(gray, 70, 255,cv2.THRESH_BINARY)
-    print('this is threshold value:',ret)
+    print('this is threshold value:',ret,type(binary),binary.shape)
     cv2.imwrite(path+filename.split('.')[0]+'_gray.jpg',gray)
     cv2.imwrite(path+filename.split('.')[0]+'_mask.jpg',binary)
 
@@ -91,5 +92,9 @@ def png2jpg(origin,dest):
         cv2.imwrite(dest+file.split('.')[0]+'.jpg',img)
 
 if __name__ == '__main__':
-    # creat_mask('../images/','im0324.png')
-    png2jpg('../images/origin/','../images/jpg/')
+
+    creat_mask('../images/','im0324.png')
+    # # png2jpg('../images/origin/','../images/jpg/')
+    # dilate()
+
+    pass
