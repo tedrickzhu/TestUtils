@@ -11,10 +11,10 @@ def show_in_one(images, show_size=(480, 1280), blank_size=0, window_name="merge"
     column = int(show_size[1] / (small_w + blank_size))
     row = int(show_size[0] / (small_h + blank_size))
     shape = [show_size[0], show_size[1]]
-    print images[0]
+    print(images[0])
     for i in range(2, len(images[0].shape)):
         shape.append(images[0].shape[i])
-    print shape
+    print(shape)
     merge_img = np.zeros(tuple(shape), images[0].dtype)
 
     max_count = len(images)
@@ -55,7 +55,7 @@ if __name__ == '__main__':
     vc2 = cv2.VideoCapture('/home/zzy/Videos/1person/1person_speed1.avi')
 
     c = 1
-    print 'step 1 open video file'
+    # print 'step 1 open video file'
     if vc1.isOpened():
         rval1, frame1 = vc1.read()
         debug_images.append(frame1)
@@ -69,7 +69,7 @@ if __name__ == '__main__':
         rval2 = False
 
     timeF = 1
-    print "output images-------------------------"
+    # print "output images-------------------------"
     while  rval2:
         rval1, frame1 = vc1.read()
         rval2, frame2 = vc2.read()
