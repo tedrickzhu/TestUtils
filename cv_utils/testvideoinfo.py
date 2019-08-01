@@ -1,7 +1,10 @@
+#encoding=utf-8
+
 import cv2 as cv
 
+test='/Users/jintaoduan/Downloads/test.mp4'
 # capture = cv.VideoCapture('/home/zzy/Videos/trueupcutfore30f.mp4')
-capture = cv.VideoCapture('/home/zzy/Videos/dancewithmusic/wrong2.mp4')
+capture = cv.VideoCapture(test)
 
 #通过opencv 获得视频的相关信息，如图片的宽高，帧率，编码格式，共计多少帧
 nbFrames = int(capture.get(cv.CAP_PROP_FRAME_COUNT))
