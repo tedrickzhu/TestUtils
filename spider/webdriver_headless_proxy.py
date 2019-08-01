@@ -5,13 +5,6 @@
 #time:2019/4/24 上午11:07
 # _*_ coding:utf‐8 _*
 
-'''
-@描述：chrome -headless with proxy -- baidu
-@作者：wuyanhui
-@版本：V1.0
-@创建时间：2017/11/15 16:47
-'''
-
 from selenium import webdriver
 
 # ---chrome
@@ -58,3 +51,36 @@ if __name__ == '__main__':
     print("--finish--")
     driver.quit()
     exit(0)
+
+'''webdriver+headless+proxy'''
+# https://www.jianshu.com/p/a92dd9a824ec
+# https://blog.csdn.net/guduyishuai/article/details/78988793
+# https://blog.csdn.net/weixin_39847926/article/details/82190341
+# https://www.cnblogs.com/zhang-pengcheng/p/6081007.html
+# https://blog.csdn.net/duzilonglove/article/details/78517429
+# https://stackoverflow.com/questions/48979520/chrome-headless-proxy-server
+# https://www.cnblogs.com/rookies/p/6119786.html
+# https://blog.csdn.net/weixin_42156283/article/details/84978904
+# https://blog.csdn.net/qq_37059367/article/details/82943755
+# https://blog.csdn.net/jane1229/article/details/83719431
+# https://www.cnblogs.com/fhjy/p/9762908.html
+
+'''browsermobproxy'''
+# https://blog.csdn.net/zhanghs11/article/details/80487030
+# https://www.cnblogs.com/lhfcws/p/6594038.html
+
+# from selenium import webdriver
+#
+# PROXY = "proxy_host:proxy:port"
+# options = webdriver.ChromeOptions()
+# desired_capabilities = options.to_capabilities()
+# desired_capabilities['proxy'] = {
+# "httpProxy":PROXY,
+# "ftpProxy":PROXY,
+# "sslProxy":PROXY,
+# "noProxy":None,
+# "proxyType":"MANUAL",
+# "class":"org.openqa.selenium.Proxy",
+# "autodetect":False
+# }
+# driver = webdriver.Chrome(desired_capabilities = desired_capabilities)
